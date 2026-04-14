@@ -20,16 +20,15 @@ async def on_message(message):
         return
 
     output = []
-    output.append(f"{message.author.display_name}: {text}")
 
     try:
         ja = translator.translate(text, dest="ja").text
         en = translator.translate(text, dest="en").text
 
         if text != ja:
-            output.append(f"→ [ja] {ja}")
+            output.append(f"[ja] {ja}")
         if text != en:
-            output.append(f"→ [en] {en}")
+            output.append(f"[en] {en}")
 
     except:
         output.append("※ 翻訳エラー（Translation error）")
